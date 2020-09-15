@@ -18,7 +18,7 @@ public class main {
         System.out.println("투입하신 금액은 "+your_money+"원 입니다");
 
         errsee=your_money%100;  //100원이하로 돈투입시 오류발생시키기
-        if (errsee<100){
+        if (errsee>0){
             System.out.println("오류발생 다시 시도하여 주세요");
         }
 
