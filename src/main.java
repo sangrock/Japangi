@@ -1,8 +1,5 @@
 import java.util.Scanner;
-/*1.음료수 여럿 선택
-* 2.잔돈 반환
-* 3.클래스로 나누기
-* */
+
 public class main {
     public static void main(String[] args) {
         String yesno;
@@ -15,8 +12,7 @@ public class main {
         Scanner scan = new Scanner(System.in);
         //돈투입&메뉴실행
         System.out.println("자판기 프로그램입니다.");
-        System.out.println("음료수는 하나만 선택하실수 있습니다. 100원 이하의 단위는 받지않습니다.");
-        System.out.println("1.사이다 1000원 2.콜라 1500원 3.맥콜 1200원");
+        System.out.println("100원 이하의 단위는 받지않습니다.");
         System.out.println("음료수를 선택 하기 전 돈을 투입하여 주세요:   (원)");
         money = scan.nextInt();
         System.out.println("투입하신 금액은 "+money+"원 입니다");
@@ -28,6 +24,7 @@ public class main {
 
         else {
             while (money>0){
+                System.out.println("1.사이다 1000원 2.콜라 1500원 3.맥콜 1200원");
                 System.out.println("음료수를 선택해 주세요:");
                 select = scan.nextInt();
 
@@ -62,13 +59,45 @@ public class main {
                         }
                         break;
                         }
-                System.out.println(""+select+"번 음료수를 선택하였습니다.");
-                System.out.println("남은 금액은" + money + "원 입니다");
 
 
+                    if (money>100){
+                        System.out.println("음료수를 더 선택하시겠습니까? 예는 1번 아니오는 2번을 눌러주세요");
+                        select = scan.nextInt();
+                        if (select==1){
+                            continue;
+                        }
+                        else if (select==2){
+                            break;
+                        }
+                    }
+                    else{
+                        System.out.println("100원 이하의 잔액이 남았기 때문에 환불 과정으로 넘어가겠습니다.");
+                        break;
+                    }
             }
-            System.out.println("잔돈 " + money + "원을 반환 하겠습니다.");
-
+            System.out.println("환불을 시작하겠습니다");
+            int m1000=money/1000;
+            money=money-(m1000*1000);
+            int m500=money/500;
+            money=money-(m500*500);
+            int m100=money/100;
+            money=money-(m100*100);
+            if (m1000>0){
+                System.out.println("1000원 지폐는 "+m1000+"장 환불되었습니다");
+            }
+            else{
+            }
+            if (m500>0){
+                System.out.println("500원 동전은 "+m500+"개 환불되었습니다");
+            }
+            else{
+            }
+            if (m100>0){
+                System.out.println("100원 동전은 "+m100+"개 환불되었습니다");
+            }
+            else{
+            }
         }
     }
     }
